@@ -133,6 +133,20 @@ pub use multi_batch_progress::{
     MAX_MULTI_BATCH_BATCHES, MAX_MULTI_BATCH_PAYMENTS,
 };
 
+/// Payroll approval quorum validation (#697).
+pub mod approval_quorum;
+pub use approval_quorum::{
+    add_approval, initialize_approval_record, validate_quorum_config, validate_quorum_met,
+    ApprovalQuorumError, PayrollApprovalRecord, PayrollQuorumConfig,
+};
+
+/// Cross-currency payout rounding safeguards (#700).
+pub mod cross_currency_rounding;
+pub use cross_currency_rounding::{
+    convert_with_rounding_safeguards, ConversionResult, CrossCurrencyConversionConfig,
+    RoundingMode, RoundingSafeguardError,
+};
+
 const MAX_BATCH: u32 = 50;
 const MAX_DRAFT_DESCRIPTION_BYTES: u32 = 256;
 
